@@ -1,0 +1,307 @@
+[{
+    "layer": "top", // Waybar at top layer
+		"output": "DP-1",
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 46, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 12, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [ "custom/launcher", "hyprland/workspaces", "custom/media",],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "custom/weather", "clock", "tray", "custom/wallpaper", "custom/notification"],
+
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "active-only": false,
+        "all-outputs": false,
+        "sort-by": "number",
+        "on-scroll-up": "hyprctl dispatch workspace m+1",
+        "on-scroll-down": "hyprctl dispatch workspace m-1",
+         "format-icons": {
+             "2": "",
+             "1": "",
+             "3": "󰍩",
+             "4": "󰖟",
+             "5": "󰺻",
+             "6": "󱜠",
+             "urgent": "",
+             "focused": "",
+             "10": "󰊓",
+             "default": ""
+        }
+	},
+	
+	"hyprland/window": {    
+	"format": "{initialTitle}",
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "Mozilla Firefox",
+        "(.*) - Geany": "Geany",
+        "(.*) - fish": "> [$1]"
+    },
+	    "separate-outputs": true,
+	},
+	
+ "custom/launcher": {
+    "tooltip": false,
+	"format": "󰣇",
+	"on-click": "rofi -show combi"
+	},
+	
+ "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+"custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar",
+    "return-type": "json"
+},
+
+"custom/wallpaper": {
+	"format": "",
+	"tooltip": false,
+	"on-click": "sleep 0.1 && /home/pawelkuzia/Scripts/next_wallpaper.sh",
+//	"on-click": "swaybg -i $(find /home/pawelkuzia/.wallpapers -name '*.*'  | shuf -n 1) -m fill",
+//	"on-click": "swww img $(find /home/pawelkuzia/.wallpapers -name '*.*'  | shuf -n 1) --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60",
+	
+	},
+
+//"custom/weather": {
+//    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Poznań+Poland",
+//    "return-type": "json",
+//    "format": "{}",
+//    "tooltip": true,
+//    "interval": 3600
+//},
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+       //"tooltip": false,
+       // "format_alt": "{temperatureC}°C "
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "spotify-player": "",
+            "default": "󰗃"
+        },
+        "escape": true,
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
+    }
+}, {
+    "layer": "top", // Waybar at top layer
+		"output": ["DP-2","DP-3"],
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 46, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 12, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["clock", "tray"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "game": ","
+    //         "main": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "active-only": false,
+        "all-outputs": false,
+        "sort-by": "number",
+        "on-scroll-up": "hyprctl dispatch workspace m+1",
+        "on-scroll-down": "hyprctl dispatch workspace m-1",
+ //       "persistent-workspaces": {
+ //            "1": [ "DP-1"],
+ //            "2": [ "DP-1"],
+ //            "5": [ "DP-2"],
+ //            "6": [ "DP-2"],
+ //            "3": [ "DP-3"],
+ //            "4": [ "DP-3"],
+ //        },
+ //        "ignore-workspaces"
+         "format-icons": {
+             "2": "",
+             "1": "",
+             "3": "󰍩",
+             "4": "󰖟",
+             "5": "󰺻",
+             "6": "󱜠",
+             "urgent": "",
+             "focused": "",
+//             "default": ""
+        }
+	},
+	
+	"hyprland/window": {    
+	"format": "{initialTitle}",
+    "rewrite": {
+        "(.*) — Mozilla Firefox": "Mozilla Firefox",
+        "(.*) - Geany": "Geany",
+        "(.*) - fish": "> [$1]"
+    },
+	    "separate-outputs": true,
+	},
+
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+}]

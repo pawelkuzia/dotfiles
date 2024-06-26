@@ -1,0 +1,92 @@
+#!/bin/bash
+if [ $(cat /home/pawelkuzia/Scripts/monmodecheck) -eq 1 ] 
+then 
+echo "o chuj dziala!" 
+else
+echo "tez dziala, ale inaczej" 
+fi
+
+
+if [ $(cat /home/pawelkuzia/Scripts/monmodecheck) -eq 1 ]
+then
+#hc keybind Mod1-Control-Shift-1 \
+#     chain , set_monitors 1080x1920+0+120 948x2110+1086+44 1920x2110+2040+44 948x2110+3966+44 1920x1080+4920+540 , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , \
+#     spawn monmode 1
+hc keybind Mod1-Control-Shift-2 \
+     chain , \
+     add bottom , \
+     add_monitor 2560x664+1720+1490 bottom bottom , \ 
+     move_monitor left 628x2110+1086+44 , move_monitor main 2560x1440+1720+44 , move_monitor right 628x2110+4286+44 , \
+#     set_monitors 1080x1920+0+120 628x2110+1086+44 2560x1440+1720+44 628x2110+4286+44 1920x1080+4920+540 2560x664+1720+1490  , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , rename_monitor 5 bottom , \
+     spawn monmode 2
+hc keybind Mod1-Control-Shift-3 \
+     chain , \
+     move_monitor main 3840x2160+1080+0 , remove_monitor left , remove_monitor right , \
+#    rename_monitor 0 sidel , rename_monitor 1 main , rename_monitor 2 sider , \
+     merge_tag right main , merge_tag left main , \
+     spawn monmode 3
+elif [ $(cat /home/pawelkuzia/Scripts/monmodecheck) -eq 2]
+then
+hc keybind Mod1-Control-Shift-1 \
+     chain , \
+     move_monitor left 948x2110+1086+44 , move_monitor main 1920x2110+2040+44 , move_monitor right 948x2110+3966+44 , \
+     remove_monitor bottom , \
+#     set_monitors 1080x1920+0+120 948x2110+1086+44 1920x2110+2040+44 948x2110+3966+44 1920x1080+4920+540 , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , \
+     merge_tag bottom main , \
+     spawn monmode 1
+#hc keybind Mod1-Control-Shift-2 \
+#     chain , set_monitors 1080x1920+0+120 628x2110+1086+44 2560x1440+1720+44 628x2110+4286+44 1920x1080+4920+540 2560x664+1720+1490  , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , rename_monitor 5 bottom , \
+#     add bottom , \
+#     spawn monmode=2
+hc keybind Mod1-Control-Shift-3 \
+     chain , \
+     move_monitor main 3840x2160+1080+0 , \
+     remove_monitor left , remove_monitor right , remove_monitor bottom ,\
+#     set_monitors 1080x1920+0+120 3840x2160+1080+0 1920x1080+4920+540 , \
+#     rename_monitor 0 sidel , rename_monitor 1 main , rename_monitor 2 sider , \
+     merge_tag right main , merge_tag left main , merge_tag bottom main , \     
+     spawn monmode 3  
+elif [ $(cat /home/pawelkuzia/Scripts/monmodecheck) -eq 3 ]
+then
+hc keybind Mod1-Control-Shift-1 \
+     chain , \
+     add left , add right , \
+     move_monitor main 1920x2110+2040+44 , add_monitor 948x2110+1086+44 left left , add_monitor 948x2110+3966+44 right right , \
+#     set_monitors 1080x1920+0+120 948x2110+1086+44 1920x2110+2040+44 948x2110+3966+44 1920x1080+4920+540 , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , \
+     spawn monmode 1
+hc keybind Mod1-Control-Shift-2 \
+     chain , \
+     add left , add right , add bottom , \
+     move_monitor main 2560x1440+1720+44 , add_monitor 628x2110+1086+44 left left , add_monitor 628x2110+4286+44 right right , add_monitor 2560x664+1720+1490 bottom bottom , \
+#     set_monitors 1080x1920+0+120 628x2110+1086+44 2560x1440+1720+44 628x2110+4286+44 1920x1080+4920+540 2560x664+1720+1490  , \
+#     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , rename_monitor 5 bottom , \
+     add left , add right , add bottom , \
+     spawn monmode 2
+#hc keybind Mod1-Control-Shift-3 \
+#     chain , set_monitors 1080x1920+0+120 3840x2160+1080+0 1920x1080+4920+540 , \
+#     rename_monitor 0 sidel , rename_monitor 1 main , rename_monitor 2 sider , \
+#     merge_tag right main , merge_tag left main , merge_tag bottom main , \     
+#     spawn monmode=3  
+fi
+
+
+hc keybind Mod1-Control-Shift-1 \
+     chain , \
+     set_monitors 1080x1920+0+120 948x2110+1086+44 1920x2110+2040+44 948x2110+3966+44 1920x1080+4920+540 , \
+     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , \
+     lock_tag sidel , lock_tag left , lock_tag main , lock_tag right , lock_tag sider
+hc keybind Mod1-Control-Shift-2 \
+     chain , \
+     set_monitors 1080x1920+0+120 628x2110+1086+44 2560x1440+1720+44 628x2110+4286+44 1920x1080+4920+540 2560x664+1720+1490  , \
+     rename_monitor 0 sidel , rename_monitor 1 left , rename_monitor 2 main , rename_monitor 3 right , rename_monitor 4 sider , rename_monitor 5 bottom , \
+     lock_tag sidel , lock_tag left , lock_tag main , lock_tag right , lock_tag sider , lock_tag bottom
+hc keybind Mod1-Control-Shift-3 \
+     chain , \
+     set_monitors 1080x1920+0+120 3840x2160+1080+0 1920x1080+4920+540 , \
+     rename_monitor 0 sidel , rename_monitor 1 main , rename_monitor 2 sider , \
+     lock_tag sidel ,  lock_tag main , lock_tag sider

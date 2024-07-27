@@ -1,42 +1,121 @@
-@import "mocha.css";
+/* @import "mocha.css"; */
+
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 rgba(49, 50, 68, 1);
+@define-color base rgba(30, 30, 46, 0.5);
+@define-color mantle rgba(24, 24, 37, 0.75);
+@define-color crust rgba(17, 17, 27, 1);
+
+
+
 * {
-	border-radius: 12px;
 	font-family: "UbuntuSans Nerd Font Propo" ;
 	font-size: 17px;
 	min-height: 10px;
-	opacity: 1;
+	border-radius: 12px;
 }
 
 window#waybar {
+	padding-left: 12px;
+	margin-right: 12px;
+	/* border-bottom: 2px solid @lavender; */
 	background: transparent;
-	
+	/* box-shadow: 1px -13px 9px 14px rgba(0,0,0,0.75); */
 }
 
+window#waybar > box {
+	background: @mantle;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 0px;
+	/* margin-bottom: 8px;
+    box-shadow: 1px 1px 19px -4px rgba(0,0,0,0.75); */
+}
 
 window#waybar.hidden {
 	opacity: 0.95;
 }
 
-#window, #workspaces, #pulseaudio, #clock, #memory, #cpu, #tray, #custom-media, #custom-weather, #custom-notification, #custom-wallpaper,  #custom-launcher {
-	margin-top: 12px;
-	margin-bottom: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
+/* #window, #workspaces, #pulseaudio, #memory, #cpu, #tray, #custom-media, #custom-notification, #custom-wallpaper, #custom-launcher, #taskbar, #music, #centerpill, #clock.small {
+	margin-top: 6px;
+	margin-bottom: 6px;
 	
+	
+} */
+
+tooltip {
+	background: @base;
+    color: @text;
+	border: 2px solid @lavender;
+	padding: 10px;
+	margin: 10px;
+
+}
+
+#taskbar {
+	border-radius: 12px;
+	font-size: 17px;
+	transition: none;
+    color: @text;
+	background: @surface0;
+}
+
+#taskbar.empty {
+	color: transparent;
+	background: transparent;
+	
+/*
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+*/
+}
+
+#taskbar button {
+	transition: none;
+	color: @text;
+	background: transparent;
+	border-radius: 12px;
+	border-width: 0px;
+/*
+	padding-left: auto;
+	padding-right: auto;
+*/
+/*
+	min-width: 50px;
+*/
+/*
+	padding-right: 14px;
+*/
 /*
 	box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.27);
 */
-	
 }
 
-tooltip {
-	background: #242932;
-	color: #eceff4;	
-	border-radius: 12px;
-	opacity: 1;
-	border: 2px solid #89A3C2;
-
+#taskbar button.active {
+	color: @peach;
+	background: rgba(180, 190, 254, 0.25);
 }
+
 
 #window {
 	padding-left: 10px;
@@ -45,7 +124,7 @@ tooltip {
 	font-size: 17px;
 	transition: none;
     color: @text;
-	background: @crust;
+	background: @surface0;
 }
 
 window#waybar.empty #window {
@@ -66,7 +145,7 @@ window#waybar.empty #window {
 #workspaces button {
 	transition: none;
 	color: @text;
-	background: @crust;
+	background: transparent;
 	border-radius: 12px;
 /*
 	padding-left: auto;
@@ -86,7 +165,7 @@ window#waybar.empty #window {
 #workspaces button.occupied {
 	transition: none;
 	color: @text;
-	background: #242932;
+	background: transparent;
 }
 
 #workspaces button.active {
@@ -102,7 +181,7 @@ window#waybar.empty #window {
 }
 
 #workspaces button.active:hover {
-    color: @lavender;
+    color: @peach;
 	background: transparent;
 }
 
@@ -128,7 +207,35 @@ window#waybar.empty #window {
 }
 */
 
+#centerpill {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 17px;
+/*
+	margin-bottom: 0px;
+*/
+	border-radius: 12px;
+	transition: none;
+	color: @text;
+	background: @crust;
+	/*background: #1A1826;*/
+}
+
 #clock {
+	padding-left: 0px;
+	padding-right: 0px;
+	font-size: 17px;
+/*
+	margin-bottom: 0px;
+*/
+	border-radius: 12px;
+	transition: none;
+	color: @text;
+	background: transparent;
+	/*background: #1A1826;*/
+}
+
+#clock.small {
 	padding-left: 10px;
 	padding-right: 10px;
 	font-size: 17px;
@@ -147,6 +254,8 @@ window#waybar.empty #window {
 /*
 	margin-bottom: 0px;
 */
+	margin-left: 6px;
+	margin-right: 12px;
 	padding-right: 10px;
 	border-radius: 12px;
 	transition: none;
@@ -163,7 +272,7 @@ window#waybar.empty #window {
 	padding-right: 10px;
 	border-radius: 12px;
 	transition: none;
-	color: @;
+	color: @text;
 	background: @surface0;
 	font-size: 17px;
 }
@@ -195,20 +304,97 @@ window#waybar.empty #window {
 	font-size: 17px;
 }
 
-#custom-weather {
+#mpris {
+	padding-left: 5px;
+	padding-right: 10px;
 /*
-	padding-top: 4px;
+	margin-bottom: 0px;
 */
+	transition: width 1s;
+	color: @text;
+	background: transparent;
+	font-size: 15px;
+}
+
+#mpris.icon {
+	padding-left: 0px;
+	padding-right: 0px;
+/*
+	margin-bottom: 0px;
+*/
+	transition: none;
+	color: @text;
+	background: transparent;
+	font-size: 20px;
+}
+
+#mpris.l1 {
+	padding-left: 0px;
+	margin-top: 0px;
+/*
+	margin-bottom: 0px;
+*/
+	border-radius: 0px;
+	transition: none;
+	color: @text;
+	background: transparent;
+	font-size: 15px;
+}
+
+#mpris.l2 {
+	padding-left: 0px;
+/*
+	margin-bottom: 0px;
+*/
+	border-radius: 0px;
+	transition: none;
+	color: @text;
+	background: transparent;
+	font-size: 12px;
+	margin-top: 0px;
+}
+
+#music {
+	margin-left: 0;
 	padding-left: 10px;
 	padding-right: 10px;
 /*
 	margin-bottom: 0px;
 */
 	border-radius: 12px;
-	border-radius: 12px;
-	transition: none;
+	transition: width 1s;
 	color: @text;
 	background: @surface0;
+}
+
+#cava {
+	font-family: "UbuntuSansMono Nerd Font" ;
+	font-size: 22px;
+	padding-left: 0px;
+/*
+	margin-bottom: 0px;
+*/
+	/* border-radius: 12px;
+	border-radius: 12px; */
+	transition: none;
+	color: @text;
+	background: transparent;
+}
+
+
+#custom-weather {
+/*
+	padding-top: 4px;
+*/
+	padding-left:  0px;
+	padding-right: 0px;
+	margin-left: 5px;
+/*
+	margin-bottom: 0px;
+*/
+	transition: none;
+	color: @text;
+	background: transparent;
 	font-size: 17px;
 }
 
@@ -226,7 +412,7 @@ window#waybar.empty #window {
 	transition: none;
 	color: @text;
 	background: @crust;
-	font-size: 24;
+	font-size: 22px;
 }
 
 #custom-wallpaper {
@@ -259,4 +445,78 @@ window#waybar.empty #window {
 
 #custom-launcher button:hover {
 	background: #3b4252;
+}
+
+
+#custom-spacer {
+	min-width: 0px;
+}
+
+#disk {
+	padding-left: 10px;
+	padding-right: 10px;
+/*
+	margin-bottom: 0px;
+*/
+	color: @text;
+	background: transparent;
+	font-size: 13px;
+}
+
+#disks {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 6px;
+	border-radius: 12px;
+	color: @text;
+	background: @surface0;
+}
+
+#custom-diskicon {
+	padding-left: 10px;
+	padding-right: 10px;
+/*
+	margin-bottom: 0px;
+*/
+	border-radius: 12px;
+	color: @text;
+	background: @surface0;
+	font-size: 17px;
+}
+
+#networkspeed {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 12px;
+	font-size: 17px;
+    color: @text;
+	background: @surface0;
+}
+
+#network.up {
+	padding-left: 5px;
+	font-size: 12px;
+    color: @text;
+	background: transparent;
+	min-width: 70px;
+	font-family: "UbuntuSansMono Nerd Font" ;
+}
+
+#network.down {
+	padding-left: 5px;
+	font-size: 12px;
+    color: @text;
+	background: transparent;
+	min-width: 70px;
+	font-family: "UbuntuSansMono Nerd Font" ;
+}
+
+#custom-networkicon {
+	font-size: 17px;
+    color: @text;
+	background: transparent;
+}
+
+#networkspeedin {
+	padding-top: 4;
 }

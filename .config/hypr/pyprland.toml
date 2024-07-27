@@ -4,7 +4,7 @@ plugins = [
 ]
 [scratchpads.alaquake]
 animation = "fromTop"
-command = "kitty --class alaquake tmux"
+command = "kitty --class alaquake"
 class = "alaquake"
 size = "1280px 720px"
 lazy = true 

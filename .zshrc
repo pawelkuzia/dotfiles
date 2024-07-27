@@ -1,30 +1,63 @@
-# Lines configured by zsh-newuser-install
+# History settings
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/pawelkuzia/.zshrc'
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+HISTDUP=erease
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_save_nodups
+setopt hist_ignore_dups
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+
+#zstyle :compinstall filename '/home/pawelkuzia/.zshrc'
+
+
+# Zinit set foilder and download
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+if [ ! -d $ZINIT_HOME ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Zinit Plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions 
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+
 
 # Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)               # Include hidden files.
+autoload -U compinit && compinit
+zinit cdreplay -q
 
-# Add this to ~/.bashrc (or your $SHELL equivalent)
-export SPOTIFY_ID=a09d5f7acfa7414eaa5d3a8560ffe020 # client id
-export SPOTIFY_SECRET=30c71fd33edb41d69b6d11ff8d3d7ba0 # client secret
 
-eval "$(starship init zsh)"
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLOURS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+# Prompt
+eval "$(oh-my-posh --config ~/.config/ohmyposh/zen.toml init zsh)"
+#eval "$(starship init zsh)"
+
+# Binds
+bindkey -e 
 bindkey  "^[[3~"  delete-char
-# Load ; should be last.
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/autojump/autojump.zsh 2>/dev/null
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+
+# Aliases
+alias ls='ls --color'
+
+# Sources
+source $HOME/.config/spotify-player/login.zsh

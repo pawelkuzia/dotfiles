@@ -41,6 +41,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLOURS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:z:*' fzf-preview 'ls --color $realpath'
 
 # Prompt
 eval "$(oh-my-posh --config ~/.config/ohmyposh/zen.toml init zsh)"
@@ -57,7 +58,8 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 
 # Aliases
-alias ls='ls --color'
+alias ls='ls --color -A'
+alias clr=clear
 
 # Sources
 source $HOME/.config/spotify-player/login.zsh

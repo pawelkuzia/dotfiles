@@ -64,3 +64,4 @@ alias clr=clear
 # Sources
 source $HOME/.config/spotify-player/login.zsh
 source /usr/share/doc/find-the-command/ftc.zsh askfirst
+#source /usr/share/doc/pkgfile/command-not-found.zsh

@@ -2,11 +2,40 @@
  * vim: ft=less
  */
 
-/*
-@define-color cc-bg rgba(46, 52, 64, 0.3);
-*/
-@define-color cc-bg rgba(30, 30, 46, 0.8);
 
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 rgba(49, 50, 68, 1);
+@define-color base rgba(30, 30, 46, 1);
+@define-color mantle rgba(24, 24, 37, 1);
+@define-color crust rgba(17, 17, 27, 1);
+
+
+/* 
+@define-color cc-bg rgba(46, 52, 64, 0.3);
+@define-color cc-bg rgba(30, 30, 46, 0.8); */
+
+@define-color cc-bg rgba(30, 30, 46, 1);
 @define-color noti-border-color #b4befe;
 @define-color noti-bg rgba(30, 30, 46, 0.8);
 @define-color noti-bg-darker #181825;
@@ -55,19 +84,13 @@
 
 .notification {
   border-radius: 12px;
-/*
-  margin: 6px 12px;
-*/
-/*
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.7),
-    0 2px 6px 2px rgba(0, 0, 0, 0.3);
-*/
+
   box-shadow: none;
   padding: 0;
   margin-top: 6px;
 }
 
-/* Uncomment to enable specific urgency colors
+/* Uncomment to enable specific urgency colors 
 .low {
   background: yellow;
   padding: 6px;
@@ -94,13 +117,13 @@
 }
 
 .close-button {
-  background: @noti-close-bg;
+  background: @crust;
   color: @text-color;
   text-shadow: none;
   padding: 0;
   border-radius: 100%;
-  margin-top: 5px;
-  margin-right: 0px;
+  margin-top: 15px;
+  margin-right: 10px;
   box-shadow: none;
   border: none;
   min-width: 24px;
@@ -109,10 +132,10 @@
 
 .close-button:hover {
   box-shadow: none;
-  background: @noti-close-bg-hover;
+  background: @lavender;
 /*
   transition: all 0.15s ease-in-out;
-*/
+ */
   border: none;
 }
 
@@ -121,12 +144,12 @@
   padding: 4px;
   margin: 0;
   box-shadow: none;
-  background: @noti-bg;
-  border: 1px solid @noti-border-color;
+  background: @crust;
+  border: 0px solid @noti-border-color;
   color: @text-color;
 /*
   transition: all 0.15s ease-in-out;
-*/
+ */
 }
 
 .notification-default-action:hover,
@@ -227,7 +250,7 @@
 .control-center {
   background: @cc-bg;
   margin: 12px;
-  border: 3px solid @noti-border-color;
+  border: 2px solid @noti-border-color;
   
 }
 
@@ -260,13 +283,13 @@
   font-size: initial;
   color: @text-color;
   text-shadow: none;
-  background: @noti-bg;
-  border: 1px solid @noti-border-color;
+  background: @mantle;
+  border: 0px solid @noti-border-color;
   box-shadow: none;
   border-radius: 12px;
 }
 .widget-title > button:hover {
-  background: @noti-bg-hover;
+  background: @crust;
 }
 
 /* DND widget */
@@ -279,15 +302,15 @@
 .widget-dnd > switch {
   font-size: initial;
   border-radius: 12px;
-  background: @noti-bg;
-  border: 1px solid @noti-border-color;
+  background: @crust;
+  border: 0px solid @mantle;
   box-shadow: none;
 }
 .widget-dnd > switch:checked {
-  background: @bg-selected;
+  background: @lavender;
 }
 .widget-dnd > switch slider {
-  background: @noti-bg-hover;
+  background: @surface0;;
   border-radius: 12px;
 }
 
@@ -302,6 +325,11 @@
 /* Mpris widget */
 .widget-mpris {
   /* The parent to all players */
+
+  margin-right: 10px;
+  margin-left: 10px;
+  background: @crust;
+  border-radius: 12px;
 }
 .widget-mpris-player {
   padding: 8px;
@@ -324,7 +352,7 @@
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button{
-  background: @noti-bg;
+  background: @mantle;
   border-radius: 12px;
   min-width: 90px;
   min-height: 60px;
@@ -332,7 +360,7 @@
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @noti-bg-hover;
+  background: @crust;
 }
 
 /* Menubar widget */

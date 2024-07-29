@@ -47,7 +47,6 @@
     }
   },
   "widgets": [
-    "inhibitors",
     "title",
     "notifications",
     "dnd",

@@ -303,6 +303,7 @@
     "format": "",
     "tooltip": false,
     "on-click": "sleep 0.1 && /home/pawelkuzia/Scripts/next_wallpaper.sh",
+    "on-click-right": "waypaper"
   },
   "tray": {
     // "icon-size": 21,

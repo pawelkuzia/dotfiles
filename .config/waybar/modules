@@ -1,316 +1,318 @@
-	{
-		//Network Speed
-		"network#down": {
-			"interface": "enp6s0",
-			"interval": 15,
-			"format": "{bandwidthDownBytes}"
-		},
-		"network#up": {
-			"interface": "enp6s0",
-			"interval": 15,
-			"format": "{bandwidthUpBytes}"
-		},
-		"network": {
-			"interface": "enp6s0",
-			"interval": 15,
-			"format": "{bandwidthUpBytes}\n{bandwidthDownBytes}"
-		},
-		"custom/networkicon": {
-			"format": "",
-		},
-		"group/networkspeedin": {
-			"orientation": "vertical",
-			"modules": [
-				"network#up",
-				"network#down"
-			]
-		},
-		"group/networkspeed": {
-			"orientation": "horizontal",
-			"modules": [
-				"custom/networkicon",
-				"group/networkspeedin"
-			]
-		},
-		// PC stats 
-		//
-		"disk#root": {
-			"interval": 30,
-			"format": "{path}:\n{used} / {total}",
-			"path": "/"
-		},
-		"disk#dane": {
-			"interval": 30,
-			"format": "Dane:\n{used} / {total}",
-			"path": "/home/pawelkuzia/mnt/Dane"
-		},
-		"disk#magazyn": {
-			"interval": 30,
-			"format": "Magazyn:\n{used} / {total}",
-			"path": "/home/pawelkuzia/mnt/Magazyn"
-		},
-		"disk#montazhdd": {
-			"interval": 30,
-			"format": "Montaz HDD:\n{used} / {total}",
-			"path": "/home/pawelkuzia/mnt/MontazHDD"
-		},
-		"disk#montazssd": {
-			"interval": 30,
-			"format": "Montaz SSD:\n{used} / {total}",
-			"path": "/home/pawelkuzia/mnt/MontazSSD"
-		},
-		"disk#windows": {
-			"interval": 30,
-			"format": "Windows:\n{used} / {total}",
-			"path": "/home/pawelkuzia/mnt/Windows"
-		},
-		"custom/diskicon": {
-			"format": "",
-		},
-		"group/disks": {
-			"orientation": "horizontal",
-			"modules": [
-				"custom/diskicon",
-				"disk#windows",
-				"disk#montazhdd",
-				"disk#montazssd",
-				"disk#magazyn",
-				"disk#dane",
-				"disk#root",
-			]
-		},
-		"group/system": {
-			"orientation": "horizontal",
-			"drawer": {
-				"transition-duration": "300",
-				"children-class": "system-child",
-				"transition-left-to-right": false,
-			},
-			"modules": [
-				"cpu",
-				"group/disks",
-				"memory",
-			]
-		},
-		"cpu": {
-			"format": " {usage}%",
-			"on-click": "kitty bashtop"
-			//"tooltip": false,
-			// "format_alt": "{temperatureC}°C "
-		},
-		"memory": {
-			"format": " {}%"
-		},
-		// Centerpill 
-		//
-		"group/centerpill": {
-			"orientation": "horizontal",
-			"modules": [
-				"clock",
-				"custom/weather"
-			]
-		},
-		"clock": {
-			"format": "{:%H:%M    %Y-%m-%d}",
-			// "timezone": "America/New_York",
-			"tooltip-format": "<tt><small>{calendar}</small></tt>",
-			"calendar": {
-				"mode": "year",
-				"mode-mon-col": 3,
-				"weeks-pos": "right",
-				"on-scroll": 1,
-				"format": {
-					"months": "<span color='#ffead3'><b>{}</b></span>",
-					"days": "<span color='#ecc6d9'><b>{}</b></span>",
-					"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-					"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-					"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-				}
-			},
-		},
-		"custom/weather": {
-			"format": "{}°",
-			"tooltip": true,
-			"interval": 3600,
-			"exec": "wttrbar",
-			"return-type": "json"
-		},
-		"custom/spacer": {
-			"format": " ",
-		},
-		// Music Info & Cava 
-		//
-		"group/music": {
-			"orientation": "horizontal",
-			"modules": [
-				"mpris#icon",
-				"mpris",
-				"cava"
-			]
-		},
-		"mpris#icon": {
-			"format": "{player_icon}",
-			"format-paused": "{player_icon}",
-			"player-icons": {
-				"mpv": "🎵",
-				"spotify": "",
-				"spotify_player": "",
-				"firefox": "󰗃",
-				"YoutubeMusic": "󰝚",
-				"default": "󰓃"
-			},
-			"status-icons": {
-				"playing": "",
-				"paused": ""
-			},
-			"ignored-players": [
-				"firefox"
-			]
-		},
-		"mpris": {
-			"format": "{title}\n<span font='12px'>┗ {artist}</span>",
-			"format-paused": "{status_icon} {title}\n<span font='12px'>┗ {artist}</span>",
-			"player-icons": {
-				"mpv": "🎵",
-				"spotify": "",
-				"spotify_player": "",
-				"firefox": "󰗃",
-				"YoutubeMusic": "󰝚",
-				"default": "󰓃"
-			},
-			"status-icons": {
-				"playing": "",
-				"paused": ""
-			},
-			"ignored-players": [
-				"firefox"
-			]
-		},
-		"cava": {
-			//"cava_config": "$HOME/.config/cava/config",
-			"framerate": 30,
-			"autosens": 1,
-			"overshoot": 0,
-			"sensitivity": 3,
-			"bars": 10,
-			"lower_cutoff_freq": 50,
-			"higher_cutoff_freq": 10000,
-			"hide_on_silence": false,
-			"sleep_timer": 5,
-			// "method": "pulse",
-			// "source": "alsa_output.usb-TC-Helicon_GoXLRMini-00.HiFi__Speaker__sink",
-			"stereo": false,
-			"reverse": false,
-			"bar_delimiter": 0,
-			"monstercat": false,
-			"waves": false,
-			"noise_reduction": 0.5,
-			"input_delay": 2,
-			"format-icons": [
-				"▁",
-				"▂",
-				"▃",
-				"▄",
-				"▅",
-				"▆",
-				"▇",
-				"█"
-			],
-			"actions": {
-				"on-click-right": "mode"
-			}
-		},
-		"wlr/taskbar": {
-			"format": "{icon}",
-			"icon-size": 18,
-			"tooltip-format": "{title}",
-			"all-outputs": false,
-			"on-click": "activate",
-			"on-click-middle": "close",
-			"sort-by-app-id": true,
-			"ignore-list": [
-				"Alacritty",
-				"alaquake"
-			],
-			"app_ids-mapping": {
-				"firefoxdeveloperedition": "firefox-developer-edition"
-			},
-			"rewrite": {
-				"Firefox Web Browser": "Firefox",
-				"Foot Server": "Terminal"
-			}
-		},
-		"hyprland/workspaces": {
-			"format": "{icon}",
-			"active-only": false,
-			"all-outputs": false,
-			"sort-by": "number",
-			"on-scroll-up": "hyprctl dispatch workspace m+1",
-			"on-scroll-down": "hyprctl dispatch workspace m-1",
-			"format-icons": {
-				"2": "",
-				"1": "",
-				"3": "󰍩",
-				"4": "󰖟",
-				"5": "󰺻",
-				"6": "󱜠",
-				"urgent": "",
-				"focused": "",
-				"10": "󰊓",
-				"default": ""
-			}
-		},
-		"hyprland/window": {
-			"format": "{title}",
-			"icon": true,
-			"icon-size": 18,
-			"max-length": 40,
-			"rewrite": {
-				"(.*) — Mozilla Firefox": "Mozilla Firefox",
-				"(.*) - Geany": "Geany",
-				"(.*) - fish": "> [$1]"
-			},
-			"separate-outputs": true,
-		},
-		"custom/launcher": {
-			"tooltip": false,
-			"format": "󰣇",
-			"on-click": "rofi -show combi"
-		},
-		"custom/notification": {
-			"tooltip": false,
-			"format": "{icon}",
-			"format-icons": {
-				"notification": "󱅫",
-				"none": "󰂚",
-				"dnd-notification": "",
-				"dnd-none": "",
-				"inhibited-notification": "󱅫",
-				"inhibited-none": "",
-				"dnd-inhibited-notification": "",
-				"dnd-inhibited-none": "",
-			},
-			"return-type": "json",
-			"exec-if": "which swaync-client",
-			"exec": "swaync-client -swb",
-			"on-click": "swaync-client -t -sw",
-			"on-click-right": "swaync-client -d -sw",
-			"escape": true
-		},
-		"custom/wallpaper": {
-			"format": "",
-			"tooltip": false,
-			"on-click": "sleep 0.1 && /home/pawelkuzia/Scripts/next_wallpaper.sh",
-		},
-		"tray": {
-			// "icon-size": 21,
-			"spacing": 10
-		},
-		// Secondary panels modules
-		//
-		"clock#small": {
-      // "timezone": "America/New_York",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format-alt": "{:%Y-%m-%d}"
+{
+  //Network Speed
+  "network#down": {
+    "interface": "enp6s0",
+    "interval": 15,
+    "format": "{bandwidthDownBytes}"
+  },
+  "network#up": {
+    "interface": "enp6s0",
+    "interval": 15,
+    "format": "{bandwidthUpBytes}"
+  },
+  "network": {
+    "interface": "enp6s0",
+    "interval": 15,
+    "format": "{bandwidthUpBytes}\n{bandwidthDownBytes}"
+  },
+  "custom/networkicon": {
+    "format": "",
+  },
+  "group/networkspeedin": {
+    "orientation": "vertical",
+    "modules": [
+      "network#up",
+      "network#down"
+    ]
+  },
+  "group/networkspeed": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/networkicon",
+      "group/networkspeedin"
+    ]
+  },
+  // PC stats 
+  //
+  "disk#root": {
+    "interval": 30,
+    "format": "{used}\n{total}",
+    "path": "/"
+  },
+  "disk#dane": {
+    "interval": 30,
+    "format": "{used}\n{total}",
+    "path": "/home/pawelkuzia/mnt/Dane"
+  },
+  "disk#magazyn": {
+    "interval": 30,
+    "format": "{used}\n{total}",
+    "path": "/home/pawelkuzia/mnt/Magazyn"
+  },
+  "disk#rootl2": {
+    "interval": 30,
+    "format": "{total}",
+    "path": "/"
+  },
+  "custom/diskicon": {
+    "format": "",
+    "tooltip": false,
+  },
+  "group/disks#root": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/diskicon",
+      "disk#root"
+    ]
+  },
+  "group/disks#dane": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/diskicon",
+      "disk#dane"
+    ]
+  },
+  "group/disks#mag": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/diskicon",
+      "disk#magazyn"
+    ]
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": "300",
+      "children-class": "system-child",
+      "transition-left-to-right": false
     },
-	}
+    "modules": [
+      "cpu",
+      "group/disks#root",
+      "group/disks#dane",
+      "group/disks#mag",
+      "memory"
+    ]
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "on-click": "kitty bashtop"
+    //"tooltip": false,
+    // "format_alt": "{temperatureC}°C "
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  // Centerpill 
+  //
+  "group/centerpill": {
+    "orientation": "horizontal",
+    "modules": [
+      "clock",
+      "custom/weather"
+    ]
+  },
+  "clock": {
+    "format": "{:%H:%M    %Y-%m-%d}",
+    // "timezone": "America/New_York",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar",
+    "return-type": "json"
+  },
+  "custom/spacer": {
+    "format": " ",
+  },
+  // Music Info & Cava 
+  //
+  "group/music": {
+    "orientation": "horizontal",
+    "modules": [
+      "mpris#icon",
+      "mpris",
+      "cava"
+    ]
+  },
+  "mpris#icon": {
+    "format": "{player_icon}",
+    "format-paused": "{player_icon}",
+    "player-icons": {
+      "mpv": "🎵",
+      "spotify": "",
+      "spotify_player": "",
+      "firefox": "󰗃",
+      "YoutubeMusic": "󰝚",
+      "default": "󰓃"
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "ignored-players": [
+      "firefox"
+    ]
+  },
+  "mpris": {
+    "format": "{title}\n<span font='12px'>┗ {artist}</span>",
+    "format-paused": "{status_icon} {title}\n<span font='12px'>┗ {artist}</span>",
+    "player-icons": {
+      "mpv": "🎵",
+      "spotify": "",
+      "spotify_player": "",
+      "firefox": "󰗃",
+      "YoutubeMusic": "󰝚",
+      "default": "󰓃"
+    },
+    "status-icons": {
+      "playing": "",
+      "paused": ""
+    },
+    "ignored-players": [
+      "firefox"
+    ]
+  },
+  "cava": {
+    //"cava_config": "$HOME/.config/cava/config",
+    "framerate": 30,
+    "autosens": 1,
+    "overshoot": 0,
+    "sensitivity": 3,
+    "bars": 10,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "hide_on_silence": false,
+    "sleep_timer": 5,
+    // "method": "pulse",
+    // "source": "alsa_output.usb-TC-Helicon_GoXLRMini-00.HiFi__Speaker__sink",
+    "stereo": false,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.5,
+    "input_delay": 2,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "tooltip-format": "{title}",
+    "all-outputs": false,
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "sort-by-app-id": true,
+    "ignore-list": [
+      "Alacritty",
+      "alaquake"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "active-only": false,
+    "all-outputs": false,
+    "sort-by": "number",
+    "on-scroll-up": "hyprctl dispatch workspace m+1",
+    "on-scroll-down": "hyprctl dispatch workspace m-1",
+    "format-icons": {
+      "2": "",
+      "1": "",
+      "3": "󰍩",
+      "4": "󰖟",
+      "5": "󰺻",
+      "6": "󱜠",
+      "urgent": "",
+      "focused": "",
+      "10": "󰊓",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}",
+    "icon": true,
+    "icon-size": 18,
+    "max-length": 40,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "Mozilla Firefox",
+      "(.*) - Geany": "Geany",
+      "(.*) - fish": "> [$1]"
+    },
+    "separate-outputs": true,
+  },
+  "custom/launcher": {
+    "tooltip": false,
+    "format": "󰣇",
+    "on-click": "rofi -show combi"
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/wallpaper": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "sleep 0.1 && /home/pawelkuzia/Scripts/next_wallpaper.sh",
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+  // Secondary panels modules
+  //
+  "clock#small": {
+    // "timezone": "America/New_York",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+}

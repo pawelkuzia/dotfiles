@@ -1,5 +1,5 @@
 configuration {
-	modes: "combi,run,tools:/home/pawelkuzia/Scripts/rofi_toolbox.sh";
+	modes: "combi,run,tools:'/home/pawelkuzia/.config/rofi/scripts/rofi_toolbox.sh'";
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -149,5 +149,5 @@ configuration {
       sorting-method:    "name";
   }
 }
-//@theme "/usr/share/rofi/themes/android_notification.rasi"
-@theme "/home/pawelkuzia/.local/share/rofi/themes/wheatleydark2.rasi"
+
+@theme "themes/wheatleydark2.rasi"

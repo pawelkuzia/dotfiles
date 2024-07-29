@@ -23,7 +23,7 @@
 @define-color surface2 #585b70;
 @define-color surface1 #45475a;
 @define-color surface0 rgba(49, 50, 68, 1);
-@define-color base rgba(30, 30, 46, 0.90 );
+@define-color base rgba(30, 30, 46, 0.90);
 @define-color mantle rgba(24, 24, 37, 1);
 @define-color crust rgba(17, 17, 27, 1);
 
@@ -42,7 +42,7 @@ window#waybar {
   /* box-shadow: 1px -13px 9px 14px rgba(0,0,0,0.75); */
 }
 
-window#waybar > box {
+window#waybar>box {
   background: @base;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -522,7 +522,12 @@ window#waybar.empty #window {
   padding-top: 4;
 }
 
-#rootl1, #danel1, #magazynl1, #ssdl1, #hddl1, #winl1 {
+#rootl1,
+#danel1,
+#magazynl1,
+#ssdl1,
+#hddl1,
+#winl1 {
   padding-left: 5px;
   font-size: 12px;
   color: @text;
@@ -530,7 +535,12 @@ window#waybar.empty #window {
   font-family: "UbuntuSansMono Nerd Font";
 }
 
-#rootl2, #danel2, #magazynl2, #ssdl2, #hddl2, #winl2 {
+#rootl2,
+#danel2,
+#magazynl2,
+#ssdl2,
+#hddl2,
+#winl2 {
   padding-left: 5px;
   font-size: 12px;
   color: @text;
@@ -538,14 +548,24 @@ window#waybar.empty #window {
   font-family: "UbuntuSansMono Nerd Font";
 }
 
-#custom-rootname, #custom-danename, #custom-magazynname, #custom-ssdname, #custom-hddname, #custom-winname {
+#custom-rootname,
+#custom-danename,
+#custom-magazynname,
+#custom-ssdname,
+#custom-hddname,
+#custom-winname {
   font-size: 17px;
   color: @text;
   background: transparent;
   font-family: "UbuntuSansMono Nerd Font";
 }
 
-#diskroot, #diskdane, #diskmagazyn, #diskssd, #diskhdd, #diskwin {
+#diskroot,
+#diskdane,
+#diskmagazyn,
+#diskssd,
+#diskhdd,
+#diskwin {
   padding-top: 4;
 }
 

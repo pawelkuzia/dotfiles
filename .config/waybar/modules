@@ -316,3 +316,4 @@
     "format-alt": "{:%Y-%m-%d}"
   },
 }
+// vim: filetype=jsonc

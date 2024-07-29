@@ -75,7 +75,7 @@
       "image-size": 96,
       "image-radius": 12
     },
-"buttons-grid": {
+    "buttons-grid": {
       "actions": [
         {
           "label": "󰐥",
@@ -103,7 +103,5 @@
         }
       ]
     }
-
-    
   }
 }

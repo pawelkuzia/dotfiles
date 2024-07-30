@@ -1,13 +1,13 @@
 configuration {
-	modes: "combi,run,tools:'/home/pawelkuzia/.config/rofi/scripts/rofi_toolbox.sh'";
-show-icons: true;
-terminal: "kitty";
+  modes: "combi,run,tools:'/home/pawelkuzia/.config/rofi/scripts/rofi_toolbox.sh'";
+  show-icons: true;
+  terminal: "kitty";
   window-match-fields: "class,title";
 	drun-match-fields: "name";
   window-format: "{t}";
 	combi-modes: "drun,run";
   matching: "normal";
-combi-display-format: "{mode}  {text}";
+  combi-display-format: "{mode}  {text}";
   timeout {
       action: "kb-cancel";
       delay:  0;

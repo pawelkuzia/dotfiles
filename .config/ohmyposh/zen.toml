@@ -53,7 +53,7 @@ type = 'executiontime'
 style = 'plain'
 foreground = 'yellow'
 background = 'transparent'
-template = '{{ .FormattedMs }}'
+template = '{{ .FormattedMs }} '
 
 [blocks.segments.properties]
 threshold = 5000

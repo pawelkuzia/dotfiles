@@ -10,6 +10,8 @@ setopt hist_save_nodups
 setopt hist_ignore_dups
 
 
+# FZF Default Command
+export FZF_DEFAULT_COMMAND="ag . $HOME"
 #zstyle :compinstall filename '/home/pawelkuzia/.zshrc'
 
 
@@ -62,6 +64,4 @@ alias ls='ls --color -A'
 alias clr=clear
 
 # Sources
-source $HOME/.config/spotify-player/login.zsh
 source /usr/share/doc/find-the-command/ftc.zsh askfirst
-#source /usr/share/doc/pkgfile/command-not-found.zsh

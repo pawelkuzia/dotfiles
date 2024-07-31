@@ -1,6 +1,5 @@
 #!/bin/bash
 
-killall rofi && sleep 1
 HYPR_CONF="$HOME/.config/hypr/config/binds.conf"
 
 # Sprawdzenie istnienia pliku konfiguracyjnego

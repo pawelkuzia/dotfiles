@@ -1,5 +1,6 @@
 #!/bin/bash
 
+killall rofi && sleep 1
 HYPR_CONF="$HOME/.config/hypr/config/binds.conf"
 
 # Sprawdzenie istnienia pliku konfiguracyjnego
@@ -31,7 +32,7 @@ echo "Znalezione bindy:"
 printf '%s\n' "${BINDINGS[@]}"
 
 # Wybór z rofi
-CHOICE=$(printf '%s\n' "${BINDINGS[@]}" | rofi -theme-str 'configuration { font: "UbuntuSansMono Nerd Font 11"; } listview { columns: 1; lines: 20; } element { children: [element-text]; } window { width: 1280px; }' -dmenu -i -markup-rows -p "Hyprland Keybinds:")
+CHOICE=$(printf '%s\n' "${BINDINGS[@]}" | rofi -theme-str 'configuration { font: "UbuntuSansMono Nerd Font 11"; } listview { columns: 1; lines: 20; } element { children: [element-text]; } window { width: calc( 90% min 1280px ); }' -dmenu -i -markup-rows -p "Hyprland Keybinds:")
 
 # Debugowanie: Wyświetl wybraną opcję
 echo "Wybrana opcja:"

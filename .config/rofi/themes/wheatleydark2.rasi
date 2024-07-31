@@ -103,7 +103,7 @@ entry {
 }
 
 prompt {
-	padding: 5px 20px;
+	padding: 5px 10px;
 	background-color: transparent;
   text-color: #b4befe;
 	margin: 10px;
@@ -129,13 +129,13 @@ element {
 }
 
 element-icon {
-	padding: 15px 25px;
+	padding: 15px 15px;
 	size: 2.3ch;
 	background-color: transparent;
 }
 
 element-text {
-	padding: 15px 0; 
+	padding: 15px 10; 
 	text-color: @fg-alt;
 	background-color: transparent;
 }

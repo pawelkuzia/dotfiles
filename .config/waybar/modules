@@ -218,6 +218,7 @@
       "▇",
       "█"
     ],
+    "on-click": "pavucontrol",
     "actions": {
       "on-click-right": "mode"
     }

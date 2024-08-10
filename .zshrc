@@ -62,6 +62,7 @@ eval "$(zoxide init --cmd cd zsh)"
 # Aliases
 alias ls='ls --color -A'
 alias clr=clear
+alias update='yay && flatpak update && hyprpm update'
 
 # Sources
 source /usr/share/doc/find-the-command/ftc.zsh askfirst

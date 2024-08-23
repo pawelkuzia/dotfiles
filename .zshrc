@@ -14,28 +14,49 @@ setopt hist_ignore_dups
 export FZF_DEFAULT_COMMAND="ag . $HOME"
 #zstyle :compinstall filename '/home/pawelkuzia/.zshrc'
 
+# where do you want to store your plugins?
+ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
-# Zinit set foilder and download
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-if [ ! -d $ZINIT_HOME ]; then
-    mkdir -p "$(dirname $ZINIT_HOME)"
-    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# get zsh_unplugged and store it with your other plugins
+if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
+  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
 fi
+source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
-source "${ZINIT_HOME}/zinit.zsh"
+# make list of the Zsh plugins you use
+repos=(
+  # plugins that you want loaded first
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-completions 
+zsh-users/zsh-autosuggestions
+Aloxaf/fzf-tab
+)
 
-# Zinit Plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions 
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# now load your plugins
+plugin-load $repos
+
+
+# # Zinit set foilder and download
+# ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# if [ ! -d $ZINIT_HOME ]; then
+#     mkdir -p "$(dirname $ZINIT_HOME)"
+#     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# fi
+
+# source "${ZINIT_HOME}/zinit.zsh"
+
+# # Zinit Plugins
+# zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-completions 
+# zinit light zsh-users/zsh-autosuggestions
+# zinit light Aloxaf/fzf-tab
 
 
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit
-zinit cdreplay -q
+# zinit cdreplay -q
 
 
 # Completion styling

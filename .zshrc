@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # History settings
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -10,47 +17,29 @@ setopt hist_save_nodups
 setopt hist_ignore_dups
 
 
+# Set NeoVim as default editor
+export EDITOR="nvim"
 # FZF Default Command
-export FZF_DEFAULT_COMMAND="ag . $HOME"
-#zstyle :compinstall filename '/home/pawelkuzia/.zshrc'
+export FZF_DEFAULT_COMMAND=""
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse"
+export FZF_CTRL_R_OPTS="--layout=reverse"
 
-# where do you want to store your plugins?
-ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+# Zinit set foilder and download
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# get zsh_unplugged and store it with your other plugins
-if [[ ! -d $ZPLUGINDIR/zsh_unplugged ]]; then
-  git clone --quiet https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
+if [ ! -d $ZINIT_HOME ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-source $ZPLUGINDIR/zsh_unplugged/zsh_unplugged.zsh
 
-# make list of the Zsh plugins you use
-repos=(
-  # plugins that you want loaded first
-zsh-users/zsh-syntax-highlighting
-zsh-users/zsh-completions 
-zsh-users/zsh-autosuggestions
-Aloxaf/fzf-tab
-)
+source "${ZINIT_HOME}/zinit.zsh"
 
-# now load your plugins
-plugin-load $repos
-
-
-# # Zinit set foilder and download
-# ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-
-# if [ ! -d $ZINIT_HOME ]; then
-#     mkdir -p "$(dirname $ZINIT_HOME)"
-#     git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-# fi
-
-# source "${ZINIT_HOME}/zinit.zsh"
-
-# # Zinit Plugins
-# zinit light zsh-users/zsh-syntax-highlighting
-# zinit light zsh-users/zsh-completions 
-# zinit light zsh-users/zsh-autosuggestions
-# zinit light Aloxaf/fzf-tab
+# Zinit Plugins
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions 
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
 
 
@@ -67,8 +56,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Prompt
-eval "$(oh-my-posh --config ~/.config/ohmyposh/zen.toml init zsh)"
-#eval "$(starship init zsh)"
+# eval "$(oh-my-posh --config ~/.config/ohmyposh/zen.toml init zsh)"
+# eval "$(starship init zsh)"
 
 # Binds
 bindkey -e 
@@ -87,3 +76,6 @@ alias update='yay && flatpak update && hyprpm update'
 
 # Sources
 source /usr/share/doc/find-the-command/ftc.zsh askfirst
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

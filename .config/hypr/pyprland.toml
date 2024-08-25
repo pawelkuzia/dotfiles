@@ -1,12 +1,10 @@
 [pyprland]
-plugins = [
-  "scratchpads",
-]
+plugins = ["scratchpads"]
 [scratchpads.alaquake]
 animation = "fromTop"
-command = "kitty --class alaquake"
+command = "kitty --config ~/.config/kitty/kitty_quake.conf --class alaquake"
 class = "alaquake"
 size = "1280px 720px"
-lazy = true 
+lazy = true
 unfocus = "hide"
- 
+

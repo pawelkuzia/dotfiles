@@ -15,7 +15,7 @@ setopt sharehistory
 setopt hist_ignore_space
 setopt hist_save_nodups
 setopt hist_ignore_dups
-
+setopt hist_find_no_dups
 
 # Set NeoVim as default editor
 export EDITOR="nvim"
@@ -45,8 +45,13 @@ zinit light Aloxaf/fzf-tab
 
 # Basic auto/tab complete:
 autoload -U compinit && compinit
-# zinit cdreplay -q
+zinit cdreplay -q
 
+# Add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::command-not-found
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
@@ -54,6 +59,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLOURS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+ZSH_AUTOSUGGESTIONS_USE_COMP=1
+ZSH_AUTOSUGGESTIONS_SUGGESTIONS=1
+ZSH_AUTOSUGGESTIONS_SUGGESTIONS_COMMANDS=1
+ZSH_AUTOSUGGESTIONS_SUGGESTIONS_OPTIONS=2
+ZSH_AUTOSUGGESTIONS_SUGGESTIONS_FILES=0
 
 # Prompt
 # eval "$(oh-my-posh --config ~/.config/ohmyposh/zen.toml init zsh)"
@@ -73,6 +84,9 @@ eval "$(zoxide init --cmd cd zsh)"
 alias ls='ls --color -A'
 alias clr=clear
 alias update='yay && flatpak update && hyprpm update'
+alias cat=bat
+alias vim=nvim
+alias vi=nvim
 
 # Sources
 source /usr/share/doc/find-the-command/ftc.zsh askfirst

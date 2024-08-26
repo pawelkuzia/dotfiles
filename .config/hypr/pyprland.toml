@@ -2,9 +2,8 @@
 plugins = ["scratchpads"]
 [scratchpads.alaquake]
 animation = "fromTop"
-command = "kitty --config ~/.config/kitty/kitty_quake.conf --class alaquake"
+command = "kitty --class alaquake -e tmuxinator start dropdown"
 class = "alaquake"
 size = "1280px 720px"
 lazy = true
 unfocus = "hide"
-

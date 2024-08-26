@@ -81,7 +81,7 @@
 }
 
 .notification {
-  border-radius: 12px;
+  border-radius: 4px;
 
   box-shadow: none;
   padding: 0;
@@ -91,7 +91,7 @@
 .notification-content {
   background: transparent;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .close-button {
@@ -137,7 +137,7 @@
 }
 
 .notification-default-action {
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 /* When alternative actions are visible */
@@ -171,14 +171,14 @@
   color: @text-color;
   caret-color: @text-color;
   border: 1px solid @noti-border-color;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .inline-reply-button {
   margin-left: 4px;
   background: @noti-bg;
   border: 1px solid @noti-border-color;
-  border-radius: 12px;
+  border-radius: 4px;
   color: @text-color;
 }
 
@@ -197,7 +197,7 @@
 .body-image {
   margin-top: 6px;
   background-color: white;
-  border-radius: 12px;
+  border-radius: 4px;
   min-width: 150px;
 }
 
@@ -229,6 +229,7 @@
 }
 
 .control-center {
+  border-radius: 0px;
   background: @cc-bg;
   margin: 12px;
   border: 2px solid @noti-border-color;
@@ -268,7 +269,7 @@
   background: @mantle;
   border: 0px solid @noti-border-color;
   box-shadow: none;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .widget-title>button:hover {
@@ -285,7 +286,7 @@
 
 .widget-dnd>switch {
   font-size: initial;
-  border-radius: 12px;
+  border-radius: 4px;
   background: @crust;
   border: 0px solid @mantle;
   box-shadow: none;
@@ -298,20 +299,20 @@
 .widget-dnd>switch slider {
   background: @surface0;
   ;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 /* Buttons widget */
 .widget-buttons-grid {
   padding: 8px;
   margin: 8px;
-  border-radius: 12px;
+  border-radius: 4px;
   background-color: transparent;
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
   background: @mantle;
-  border-radius: 12px;
+  border-radius: 4px;
   min-width: 90px;
   min-height: 60px;
   font-size: 36px;
@@ -335,7 +336,7 @@
   background: @noti-bg;
   border: 1px solid @noti-border-color;
   box-shadow: none;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .widget-inhibitors>button:hover {

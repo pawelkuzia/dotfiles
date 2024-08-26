@@ -31,7 +31,7 @@
   font-family: "UbuntuSans Nerd Font Propo";
   font-size: 17px;
   min-height: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 window#waybar {
@@ -71,7 +71,7 @@ tooltip {
 }
 
 #taskbar {
-  border-radius: 12px;
+  border-radius: 4px;
   font-size: 17px;
   transition: none;
   color: @text;
@@ -91,7 +91,7 @@ tooltip {
   transition: none;
   color: @text;
   background: transparent;
-  border-radius: 12px;
+  border-radius: 4px;
   border-width: 0px;
   /*
 	padding-left: auto;
@@ -116,7 +116,7 @@ tooltip {
 #window {
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   font-size: 17px;
   transition: none;
   color: @text;
@@ -134,7 +134,7 @@ window#waybar.empty #window {
 
 #workspaces {
   font-size: 24;
-  border-radius: 12px;
+  border-radius: 4px;
   background: @crust;
   transition: none;
 }
@@ -143,7 +143,7 @@ window#waybar.empty #window {
   transition: none;
   color: @text;
   background: transparent;
-  border-radius: 12px;
+  border-radius: 4px;
   /*
 	padding-left: auto;
 	padding-right: auto;
@@ -188,7 +188,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: #1a1826;
   background: #fae3b0;
@@ -210,7 +210,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @crust;
@@ -224,7 +224,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: transparent;
@@ -238,7 +238,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @crust;
@@ -253,7 +253,7 @@ window#waybar.empty #window {
   margin-left: 6px;
   margin-right: 12px;
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @surface0;
@@ -266,7 +266,7 @@ window#waybar.empty #window {
 	margin-bottom: 0px;
 */
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @surface0;
@@ -279,7 +279,7 @@ window#waybar.empty #window {
 	margin-bottom: 0px;
 */
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @crust;
@@ -291,8 +291,8 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
-  border-radius: 12px;
+  border-radius: 4px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @surface0;
@@ -356,7 +356,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   transition: width 1s;
   color: @text;
   background: @surface0;
@@ -369,8 +369,8 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  /* border-radius: 12px;
-	border-radius: 12px; */
+  /* border-radius: 4px;
+	border-radius: 4px; */
   transition: none;
   color: @text;
   background: transparent;
@@ -402,7 +402,7 @@ window#waybar.empty #window {
 	margin-bottom: 0px;
 */
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @crust;
@@ -416,7 +416,7 @@ window#waybar.empty #window {
 	margin-bottom: 0px;
 */
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: @text;
   background: @crust;
@@ -430,7 +430,7 @@ window#waybar.empty #window {
 	margin-bottom: 0px;
 */
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   transition: none;
   color: #5e81ac;
   background: @crust;
@@ -460,7 +460,7 @@ window#waybar.empty #window {
   padding-left: 10px;
   margin-left: 6px;
   margin-right: 6px;
-  border-radius: 12px;
+  border-radius: 4px;
   color: @text;
   background: @surface0;
 }
@@ -469,7 +469,7 @@ window#waybar.empty #window {
   padding-left: 10px;
   margin-left: 0px;
   margin-right: 6px;
-  border-radius: 12px;
+  border-radius: 4px;
   color: @text;
   background: @surface0;
 }
@@ -479,7 +479,7 @@ window#waybar.empty #window {
   /*
 	margin-bottom: 0px;
 */
-  border-radius: 12px;
+  border-radius: 4px;
   color: @text;
   background: @surface0;
   font-size: 17px;
@@ -488,7 +488,7 @@ window#waybar.empty #window {
 #networkspeed {
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 12px;
+  border-radius: 4px;
   font-size: 17px;
   color: @text;
   background: @surface0;

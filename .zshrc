@@ -29,7 +29,8 @@ export FZF_DEFAULT_OPTS=" \
 export FZF_DEFAULT_COMMAND=""
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse"
 export FZF_CTRL_R_OPTS="--layout=reverse"
-
+# Bat Theme
+export BAT_THEME="Catppuccin Mocha"
 # Zinit set foilder and download
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 

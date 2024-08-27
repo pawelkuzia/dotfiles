@@ -25,9 +25,11 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
---multi"
+--multi \
+--no-scrollbar \
+--prompt=❯ "
 export FZF_DEFAULT_COMMAND=""
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse --preview-window=right,65%,border-sharp"
 export FZF_CTRL_R_OPTS="--layout=reverse"
 # Bat Theme
 export BAT_THEME="Catppuccin Mocha"
@@ -96,7 +98,7 @@ alias vim=nvim
 alias vi=nvim
 
 # Sources
-source /usr/share/doc/find-the-command/ftc.zsh askfirst
+#source /usr/share/doc/find-the-command/ftc.zsh askfirst
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

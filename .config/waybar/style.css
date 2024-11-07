@@ -133,7 +133,7 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-  font-size: 24;
+  font-size: 24px;
   border-radius: 4px;
   background: @crust;
   transition: none;
@@ -519,7 +519,7 @@ window#waybar.empty #window {
 }
 
 #networkspeedin {
-  padding-top: 4;
+  padding-top: 4px;
 }
 
 #rootl1,
@@ -566,7 +566,7 @@ window#waybar.empty #window {
 #diskssd,
 #diskhdd,
 #diskwin {
-  padding-top: 4;
+  padding-top: 4px;
 }
 
 #system {

@@ -7,3 +7,4 @@ class = "alaquake"
 size = "1280px 720px"
 lazy = true
 unfocus = "hide"
+force_monitor = "DP-1"

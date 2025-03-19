@@ -23,7 +23,7 @@
 @define-color surface2 #585b70;
 @define-color surface1 #45475a;
 @define-color surface0 rgba(49, 50, 68, 1);
-@define-color base rgba(30, 30, 46, 1);
+@define-color base rgba(30, 30, 46, 0.7);
 @define-color mantle rgba(24, 24, 37, 1);
 @define-color crust rgba(17, 17, 27, 1);
 

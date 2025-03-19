@@ -72,7 +72,7 @@ window {
 	width: 800;
 	y-offset: 150px;
 	border: 1px solid;
-	background-color: @base;
+	background-color: @bg;
 	transparency: "real";
 	border-radius: 0;
 	padding: 5;

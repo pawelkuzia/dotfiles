@@ -48,4 +48,4 @@ windows:
   - null: pfetch
   - music: spotify_player
   - system-monitor: btop
-  # - files: yazi
+  - files: yazi

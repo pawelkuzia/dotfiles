@@ -74,7 +74,7 @@ window {
 	border: 1px solid;
 	background-color: @bg;
 	transparency: "real";
-	border-radius: 0;
+	border-radius: 8;
 	padding: 5;
 }
 

@@ -235,7 +235,7 @@
 }
 
 .control-center {
-  border-radius: 0px;
+  border-radius: 8px;
   background: @cc-bg;
   margin: 12px;
   border: 2px solid @noti-border-color;

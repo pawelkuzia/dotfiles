@@ -26,16 +26,16 @@
 @define-color surface2 #585b70;
 @define-color surface1 #45475a;
 @define-color surface0 rgba(49, 50, 68, 1);
-@define-color base rgba(30, 30, 46, 0.8);
-@define-color mantle rgba(24, 24, 37, 1);
+@define-color base rgba(30, 30, 46, 1);
+@define-color mantle rgba(24, 24, 37, 0.75);
 @define-color crust rgba(17, 17, 27, 1);
 
 
 /* 
-@define-color cc-bg rgba(46, 52, 64, 0.3);
+@define-color cc-bg rgba(46, 52, 64, 0.6);
 @define-color cc-bg rgba(30, 30, 46, 0.8); */
 
-@define-color cc-bg rgba(30, 30, 46, 0.8);
+@define-color cc-bg rgba(30, 30, 46, 0.7);
 @define-color noti-border-color #b4befe;
 @define-color noti-bg rgba(30, 30, 46, 0.6);
 @define-color noti-bg-darker #181825;
@@ -83,8 +83,8 @@
 .notification {
   all: unset;
   border-radius: 12px;
-  border: 0px;
-  background-color: @base;
+  border: 0px solid @lavender;
+  background-color: @mantle;
   box-shadow: none;
   padding: 0;
   margin-top: 6px;

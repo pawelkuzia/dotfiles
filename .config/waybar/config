@@ -8,7 +8,6 @@
       "custom/spacer",
       "custom/launcher",
       "hyprland/workspaces",
-      "wlr/taskbar",
       "hyprland/window"
     ],
     "modules-center": [
@@ -23,6 +22,25 @@
       "custom/notification",
       "custom/spacer"
     ],
+    "include": [
+      "~/.config/waybar/modules"
+    ]
+  },
+  {
+    "name": "dock",
+    "layer": "top",
+    "output": "DP-1",
+    "spacing": 0,
+    "position": "bottom",
+    "height": 70,
+    "margin-bottom": 12,
+    "margin-top": 0,
+    "modules-left": [],
+    "modules-center": [
+      "group/dockapps",
+      "wlr/taskbar#dock",
+    ],
+    "modules-right": [],
     "include": [
       "~/.config/waybar/modules"
     ]

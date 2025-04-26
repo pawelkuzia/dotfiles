@@ -223,6 +223,26 @@
       "on-click-right": "mode"
     }
   },
+  "wlr/taskbar#dock": {
+    "format": "{icon}",
+    "icon-size": 36,
+    "tooltip-format": "{title}",
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "sort-by-app-id": false,
+    "ignore-list": [
+      "Alacritty",
+      "alaquake"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
@@ -320,5 +340,55 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
   },
+  "custom/browser#docklauncher": {
+    "format": "󰖟",
+    "tooltip": "Browser",
+    "on-click": "zen-browser"
+  },
+  "custom/discord#docklauncher": {
+    "format": "",
+    "tooltip": "Discord",
+    "on-click": "firefoxpwa site launch 01H8C8XZH1X1HBPHWAW5P10GFW"
+  },
+  "custom/messenger#docklauncher": {
+    "format": "",
+    "tooltip-format": "Messenger",
+    "on-click": "firefoxpwa site launch 01J41TQGQSX2CBCRW167B1WSF5"
+  },
+  "custom/thunderbird#docklauncher": {
+    "format": "",
+    "tooltip-format": "Mail",
+    "on-click": "thunderbird"
+  },
+  "custom/steam#docklauncher": {
+    "format": "",
+    "tooltip-format": "Steam",
+    "on-click": "steam"
+  },
+  "custom/heroic#docklauncher": {
+    "format": "",
+    "tooltip-format": "Mail",
+    "on-click": "thunderbird"
+  },
+  "custom/lutris#docklauncher": {
+    "format": "",
+    "tooltip-format": "Mail",
+    "on-click": "thunderbird"
+  },
+  "custom/obs#docklauncher": {
+    "format": "",
+    "tooltip-format": "Mail",
+    "on-click": "thunderbird"
+  },
+  "group/dockapps": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/browser#docklauncher",
+      "custom/thunderbird#docklauncher",
+      "custom/discord#docklauncher",
+      "custom/messenger#docklauncher",
+      "custom/steam#docklauncher",
+    ]
+  }
 }
 // vim: filetype=jsonc

@@ -18,4 +18,4 @@ configuration {
   }
 }
 
-@theme "themes/wheatleydark2.rasi"
+@theme "themes/pywal.rasi"

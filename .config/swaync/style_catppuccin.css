@@ -2,7 +2,6 @@
  * vim: ft=less
  */
 
-@import url("/home/pawelkuzia/.cache/wal/waybar-transparency-colors.css");
 
 @define-color rosewater #f5e0dc;
 @define-color flamingo #f2cdcd;
@@ -28,7 +27,7 @@
 @define-color surface1 #45475a;
 @define-color surface0 rgba(49, 50, 68, 1);
 @define-color base rgba(30, 30, 46, 1);
-@define-color mantle @color0_alpha70;
+@define-color mantle rgba(24, 24, 37, 0.75);
 @define-color crust rgba(17, 17, 27, 1);
 
 
@@ -36,12 +35,12 @@
 @define-color cc-bg rgba(46, 52, 64, 0.6);
 @define-color cc-bg rgba(30, 30, 46, 0.8); */
 
-@define-color cc-bg @color0_alpha80;
-@define-color noti-border-color @color5;
-@define-color noti-bg @color0_alpha50;
-@define-color noti-bg-darker @color0_alpha80;
-@define-color noti-bg-hover @color0;
-@define-color noti-bg-focus @color0;
+@define-color cc-bg rgba(30, 30, 46, 0.7);
+@define-color noti-border-color #b4befe;
+@define-color noti-bg rgba(30, 30, 46, 0.6);
+@define-color noti-bg-darker #181825;
+@define-color noti-bg-hover rgb(24, 24, 37);
+@define-color noti-bg-focus rgb(24, 24, 37);
 @define-color noti-close-bg rgba(205, 214, 244, 0);
 @define-color noti-close-bg-hover rgb(180, 190, 254);
 
@@ -271,14 +270,12 @@
 
 .widget-title>button {
   font-size: initial;
-  color: @color7;
+  color: @text-color;
   text-shadow: none;
   background: @mantle;
   border: 0px solid @noti-border-color;
   box-shadow: none;
   border-radius: 4px;
-  padding: 6px;
-  margin: 8px;
 }
 
 .widget-title>button:hover {
@@ -296,17 +293,17 @@
 .widget-dnd>switch {
   font-size: initial;
   border-radius: 4px;
-  background: @background_alpha50;
+  background: @crust;
   border: 0px solid @mantle;
   box-shadow: none;
 }
 
 .widget-dnd>switch:checked {
-  background: @color6;
+  background: @lavender;
 }
 
 .widget-dnd>switch slider {
-  background: @color2_alpha20;
+  background: @surface0;
   ; 
   border-radius: 4px;
 }
@@ -320,8 +317,7 @@
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
-  background: @color2_alpha30;
-  color: @color7;
+  background: @mantle;
   border-radius: 4px;
   min-width: 90px;
   min-height: 60px;
@@ -329,7 +325,7 @@
 }
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @color6;
+  background: @crust;
 }
 
 

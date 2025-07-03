@@ -5,7 +5,13 @@ wpdir="/home/pawelkuzia/.wallpapers"
 wplist="/home/pawelkuzia/.config/waybar/wallpaperlist"
 # File containing last set wallpeper, self generating
 wplastwall="/home/pawelkuzia/.config/waybar/lastwallpaper"
+#!/usr/bin/env bash
 
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
+export PATH="/usr/bin:/bin:/usr/local/bin:$PATH"
+
+env > /home/pawelkuzia/Scripts/env_waybar.log
 # Creating wallpaper matrix
 declare -a wps
 # Saving wallpapers' paths to matrix
@@ -109,8 +115,25 @@ fi
 	# 		echo "Swaybg not running. Starting up"
 	# 	fi
 	# nohup swaybg --image $wplast -m fill &
-	nohup swww img $wplast --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60
+	swww img $wplast --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60
 	notify-send -i $wplast "New wallpaper set" "$wplast" --app-name "Wallpaper"
-	#~ ln -s "$wplast" "/home/pawelkuzia/.config/rofi/wallpaper" && 
-	#~ convert "$wplast" -resize x700 -filter Lanczos -quality 90 "/home/pawelkuzia/.config/rofi/wallpapers.png"
-exit 0
+  wal -i "$wplast"
+  bash /opt/oomox/plugins/theme_oomox/change_color.sh /opt/oomox/scripted_colors/xresources/xresources-reverse
+  bash /opt/oomox/plugins/icons_gnomecolors/gnome-colors-icon-theme/change_color.sh /opt/oomox/scripted_colors/xresources/xresources-reverse
+  swaync-client -rs
+  # pywal-spicetify Sleek
+  # killall -SIGUSR2 waybar
+  # nohup ~/Scripts/kitty-pywal.sh "$wplast" &&
+  # nohup kitty ~/Scripts/pywal-spicetify.sh &&
+  # sleep 5
+
+  # wal -i "$wplast" &&
+  # swaync-client -rs &&
+  # pywal-spicetify Sleek
+# wal -i "$wplast" --backend wal16
+# kitty --class pywal sh -c "wal -i \"$wplast\"; sleep 6; exit"
+# echo "Running pywalfox update at $(date)" >> /home/pawelkuzia/Scripts/pywalfox_update.log
+# /usr/bin/pywalfox update >> /home/pawelkuzia/Scripts/pywalfox_update.log 2>&1
+# echo "pywalfox update exit code: $?" >> /home/pawelkuzia/Scripts/pywalfox_update.log
+  #~ convert "$wplast" -resize x700 -filter Lanczos -quality 90 "/home/pawelkuzia/.config/rofi/wallpapers.png"
+exit0

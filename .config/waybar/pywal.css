@@ -1,0 +1,247 @@
+@import "colors-waybar.css";
+
+/* Transparentne wersje bazujące na importowanych zmiennych */
+@define-color background_transparent rgba(@background, 0.7);
+@define-color base_transparent rgba(@background, 0.7);
+@define-color crust_transparent rgba(@color0, 0.4);
+
+@define-color surface0_transparent rgba(@color0, 0.7);
+@define-color surface1_transparent rgba(@color8, 0.7);
+@define-color surface2_transparent rgba(@color8, 0.7);
+
+@define-color peach_transparent rgba(@color4, 0.25);
+@define-color lavender_transparent rgba(@color12, 0.25);
+
+/* Kolory zamienione z sztywnych na zmienne */
+@define-color pulseaudio_fg @color0;
+@define-color pulseaudio_bg @color4;
+@define-color pulseaudio_bg_transparent rgba(@color4, 0.25);
+
+@define-color cpu_fg @foreground;
+@define-color cpu_bg @color0;
+
+@define-color tray_fg @background;/home/pawelkuzia/Scripts/pywal-waybar.sh
+
+@define-color tray_bg @color0;
+
+/* Reset font i podstawowe style */
+* {
+  font-family: "UbuntuSans Nerd Font Propo";
+  font-size: 17px;
+  min-height: 10px;
+  border-radius: 4px;
+}
+
+window#waybar.dock {
+  padding-left: 12px;
+  margin-right: 12px;
+  background: transparent;
+}
+
+window#waybar {
+  padding-left: 12px;
+  margin-right: 12px;
+  background: transparent;
+}
+
+window#waybar > box {
+  background: @base_transparent;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border-radius: 0px;
+}
+
+window#waybar.dock > box {
+  background: transparent;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 0px;
+}
+
+window#waybar.hidden {
+  opacity: 0.95;
+}
+
+tooltip {
+  background: @base_transparent;
+  color: @foreground;
+  border: 2px solid @color12;
+  padding: 10px;
+  margin: 10px;
+}
+
+#taskbar {
+  border-radius: 4px;
+  font-size: 17px;
+  transition: none;
+  color: @foreground;
+  background: @color0;
+}
+
+#taskbar.dock {
+  border-radius: 12px;
+  font-size: 17px;
+  transition: none;
+  color: @foreground;
+  background: @crust_transparent;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 12px;
+}
+
+#taskbar.dock button {
+  transition: none;
+  color: @foreground;
+  background: transparent;
+  border-radius: 12px;
+  border-width: 0px;
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#taskbar button {
+  transition: none;
+  color: @foreground;
+  background: transparent;
+  border-radius: 4px;
+  border-width: 0px;
+}
+
+#taskbar.empty {
+  color: transparent;
+  background: transparent;
+  padding: 0;
+}
+
+#taskbar.dock button.active {
+  color: @color4;
+  background: @peach_transparent;
+}
+
+#taskbar button.active {
+  color: @color4;
+  background: rgba(@color4, 0.25);
+}
+
+#window {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  font-size: 17px;
+  transition: none;
+  color: @foreground;
+  background: @color0;
+}
+
+#waybar.empty #window {
+  color: transparent;
+  background: transparent;
+}
+
+#workspaces {
+  font-size: 24px;
+  border-radius: 4px;
+  background: @color0;
+  transition: none;
+}
+
+#workspaces button {
+  transition: none;
+  color: @foreground;
+  background: transparent;
+}
+
+#workspaces button.occupied {
+  transition: none;
+  color: @foreground;
+  background: transparent;
+}
+
+#workspaces button.active {
+  color: @color4;
+  background: transparent;
+}
+
+#workspaces button:hover {
+  transition: none;
+  text-shadow: inherit;
+  color: @color8;
+  background: transparent;
+}
+
+#workspaces button.active:hover {
+  color: @color4;
+  background: transparent;
+}
+
+#pulseaudio {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  transition: none;
+  color: @pulseaudio_fg;
+  background: @pulseaudio_bg_transparent;
+}
+
+#centerpill {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 17px;
+  border-radius: 4px;
+  transition: none;
+  color: @foreground;
+  background: @color0;
+}
+
+#clock {
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 17px;
+  border-radius: 4px;
+  transition: none;
+  color: @foreground;
+  background: transparent;
+}
+
+#clock.small {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 17px;
+  border-radius: 4px;
+  transition: none;
+  color: @foreground;
+  background: @color0;
+}
+
+#memory {
+  padding-left: 10px;
+  margin-left: 6px;
+  margin-right: 12px;
+  padding-right: 10px;
+  border-radius: 4px;
+  transition: none;
+  color: @foreground;
+  background: @color0;
+  font-size: 17px;
+}
+
+#cpu {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  transition: none;
+  color: @cpu_fg;
+  background: @cpu_bg;
+  font-size: 17px;
+}
+
+#tray {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+  transition: none;
+  color: @tray_fg;
+  background: @tray_bg;
+}
+

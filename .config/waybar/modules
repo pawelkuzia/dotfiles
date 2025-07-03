@@ -326,8 +326,9 @@
   "custom/wallpaper": {
     "format": "",
     "tooltip": false,
-    "on-click": "sleep 0.1 && /home/pawelkuzia/Scripts/next_wallpaper.sh",
-    "on-click-right": "waypaper"
+    "on-click": "hyprctl dispatch exec /home/pawelkuzia/Scripts/next_wallpaper.sh",
+    // "on-click": "kitty --class pywal zsh -ic '/home/pawelkuzia/Scripts/next_wallpaper.sh'",
+    "on-click-right": "hyprctl dispatch exec waypaper"
   },
   "tray": {
     // "icon-size": 21,
@@ -343,7 +344,7 @@
   "custom/browser#docklauncher": {
     "format": "󰖟",
     "tooltip": "Browser",
-    "on-click": "zen-browser"
+    "on-click": "firefox"
   },
   "custom/discord#docklauncher": {
     "format": "",

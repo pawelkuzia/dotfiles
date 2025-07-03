@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export GTK_THEME="oomox-xresources-reverse"
 # History settings
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -20,14 +20,23 @@ setopt hist_find_no_dups
 # Set NeoVim as default editor
 export EDITOR="nvim"
 # FZF Config
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---multi \
---no-scrollbar \
---prompt=❯ "
+
+# Load pywal colors
+if [[ -f ~/.cache/wal/colors.sh ]]; then
+    source ~/.cache/wal/colors.sh
+fi
+
+# Set fzf colors
+export FZF_DEFAULT_OPTS="--color=fg:$color15,bg:$color0,hl:$color4,fg+:$color15,bg+:$color0,hl+:$color4,info:$color4,prompt:$color1,spinner:$color4,marker:$color1"
+
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+# --color=selected-bg:#45475a \
+# --multi \
+# --no-scrollbar \
+# --prompt=❯ "
 export FZF_DEFAULT_COMMAND=""
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse --preview-window=right,65%,border-sharp"
 export FZF_CTRL_R_OPTS="--layout=reverse"

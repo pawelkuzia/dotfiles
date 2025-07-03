@@ -1,4 +1,3 @@
-@import url("/home/pawelkuzia/.cache/wal/waybar-transparency-colors.css");
 /* @import "mocha.css"; */
 
 @define-color rosewater #f5e0dc;
@@ -14,26 +13,25 @@
 @define-color sky #89dceb;
 @define-color sapphire #74c7ec;
 @define-color blue #89b4fa;
-@define-color lavender @color6;
-@define-color text @foreground;
-@define-color subtext1 @foreground;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
 @define-color subtext0 #a6adc8;
 @define-color overlay2 #9399b2;
 @define-color overlay1 #7f849c;
 @define-color overlay0 #6c7086;
 @define-color surface2 #585b70;
 @define-color surface1 #45475a;
-@define-color surface0 @color2_alpha20;
-@define-color base @color0;
-@define-color mantle @color2;
-@define-color crust @color2_alpha40;
+@define-color surface0 rgba(49, 50, 68, 1);
+@define-color base rgba(30, 30, 46, 0.7);
+@define-color mantle rgba(24, 24, 37, 1);
+@define-color crust rgba(17, 17, 27, 1);
 
 * {
   font-family: "UbuntuSans Nerd Font Propo";
   font-size: 17px;
   min-height: 10px;
   border-radius: 4px;
-  border: none;
 }
 
 window#waybar.dock {
@@ -55,7 +53,7 @@ window#waybar {
 }
 
 window#waybar>box {
-  background: @background_alpha70;
+  background: @base;
   padding-top: 6px;
   padding-bottom: 6px;
   border-radius: 0px;
@@ -84,11 +82,11 @@ window#waybar.hidden {
 } */
 
 tooltip {
-  background: transparent;
+  background: @base;
   color: @text;
-  border: 0px solid @lavender;
-  padding: 15px;
-  margin: 15px;
+  border: 2px solid @lavender;
+  padding: 10px;
+  margin: 10px;
 }
 
 #taskbar {
@@ -104,7 +102,7 @@ tooltip {
   font-size: 17px;
   transition: none;
   color: @text;
-  background: @background_alpha30;
+  background: rgba(17, 17, 27, 0.4);
   padding-left: 0px;
   padding-right: 0px;
   margin-left: 12px;
@@ -142,8 +140,6 @@ tooltip {
   background: transparent;
   border-radius: 4px;
   border-width: 0px;
-    padding-left: 6px;
-  padding-right: 6px;
   /*
 	padding-left: auto;
 	padding-right: auto;
@@ -190,12 +186,12 @@ tooltip {
 
 #taskbar.dock button.active {
   color: @peach;
-  background: @color1_alpha50;
+  background: @surface1;
 }
 
 #taskbar button.active {
   color: @peach;
-  background: @color1_alpha50;
+  background: rgba(180, 190, 254, 0.25);
 }
 
 #window {
@@ -229,8 +225,6 @@ tooltip {
   color: @text;
   background: transparent;
   border-radius: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
   /*
 	padding-left: auto;
 	padding-right: auto;
@@ -250,33 +244,23 @@ tooltip {
   transition: none;
   color: @text;
   background: transparent;
-  padding-left: 8px;
-  padding-right: 8px;
-
 }
 
 #workspaces button.active {
-  color: @color12;
+  color: @peach;
   background: transparent;
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 #workspaces button:hover {
   transition: none;
   text-shadow: inherit;
-  color: @color6;
-  background: @color2_alpha20;
-  border: none;
-  padding-left: 8px;
-  padding-right: 8px;
+  color: @subtext;
+  background: transparent;
 }
 
 #workspaces button.active:hover {
-  color: @color6;
-  background: @color2_alpha20;
-  padding-left: 8px;
-  padding-right: 8px;
+  color: @peach;
+  background: transparent;
 }
 
 #pulseaudio {
@@ -535,7 +519,7 @@ tooltip {
 }
 
 #custom-launcher button:hover {
-  background: @color2_alpha20;
+  background: #3b4252;
 }
 
 #custom-spacer {
@@ -687,7 +671,7 @@ tooltip {
 }
 
 .docklauncher:hover {
-  background: @color2_alpha20;
+  background: @surface1;
   color: @lavender;
 }
 #dockapps {
@@ -695,7 +679,7 @@ tooltip {
   font-size: 17px;
   transition: none;
   color: @text;
-  background: @background_alpha30;
+  background: rgba(17, 17, 27, 0.4);
   padding-left: 0px;
   padding-right: 0px;
 }

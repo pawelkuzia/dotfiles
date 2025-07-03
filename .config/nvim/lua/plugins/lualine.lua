@@ -23,7 +23,7 @@ return {
 
       local opts = {
         options = {
-          -- theme = "auto",
+          theme = "pywal16-nvim", -- theme = "auto",
           component_separators = { left = " | ", right = " | " },
           section_separators = { left = "", right = "" },
           globalstatus = vim.o.laststatus == 3,
@@ -129,4 +129,3 @@ return {
     end,
   },
 }
-

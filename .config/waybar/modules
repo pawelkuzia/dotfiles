@@ -326,9 +326,10 @@
   "custom/wallpaper": {
     "format": "",
     "tooltip": false,
+    "on-click-right": "kitty --class WallpaperPicker --hold=no -e ~/Scripts/selectwall.sh",
     "on-click": "hyprctl dispatch exec /home/pawelkuzia/Scripts/next_wallpaper.sh",
     // "on-click": "kitty --class pywal zsh -ic '/home/pawelkuzia/Scripts/next_wallpaper.sh'",
-    "on-click-right": "hyprctl dispatch exec waypaper"
+    //"on-click-right": "hyprctl dispatch exec waypaper"
   },
   "tray": {
     // "icon-size": 21,
@@ -344,42 +345,42 @@
   "custom/browser#docklauncher": {
     "format": "󰖟",
     "tooltip": "Browser",
-    "on-click": "firefox"
+    "on-click": "hyprctl dispatch exec firefox"
   },
   "custom/discord#docklauncher": {
     "format": "",
     "tooltip": "Discord",
-    "on-click": "firefoxpwa site launch 01H8C8XZH1X1HBPHWAW5P10GFW"
+    "on-click": "hyprctl dispatch exec firefoxpwa site launch 01H8C8XZH1X1HBPHWAW5P10GFW"
   },
   "custom/messenger#docklauncher": {
     "format": "",
     "tooltip-format": "Messenger",
-    "on-click": "firefoxpwa site launch 01J41TQGQSX2CBCRW167B1WSF5"
+    "on-click": "hyprctl dispatch exec firefoxpwa site launch 01J41TQGQSX2CBCRW167B1WSF5"
   },
   "custom/thunderbird#docklauncher": {
     "format": "",
     "tooltip-format": "Mail",
-    "on-click": "thunderbird"
+    "on-click": "hyprctl dispatch exec thunderbird"
   },
   "custom/steam#docklauncher": {
     "format": "",
     "tooltip-format": "Steam",
-    "on-click": "steam"
+    "on-click": "hyprctl dispatch exec steam"
   },
   "custom/heroic#docklauncher": {
     "format": "",
     "tooltip-format": "Mail",
-    "on-click": "thunderbird"
+    "on-click": "hyprctl dispatch exec thunderbird"
   },
   "custom/lutris#docklauncher": {
     "format": "",
     "tooltip-format": "Mail",
-    "on-click": "thunderbird"
+    "on-click": "hyprctl dispatch exec thunderbird"
   },
   "custom/obs#docklauncher": {
     "format": "",
     "tooltip-format": "Mail",
-    "on-click": "thunderbird"
+    "on-click": "hyprctl dispatch exec thunderbird"
   },
   "group/dockapps": {
     "orientation": "horizontal",

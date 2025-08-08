@@ -83,12 +83,16 @@ window#waybar.hidden {
 	
 } */
 
-tooltip {
-  background: transparent;
+tooltip * {
+  background: @background_alpha30;
   color: @text;
   border: 0px solid @lavender;
-  padding: 15px;
-  margin: 15px;
+  margin: 6px;
+}
+
+tooltip label {
+  background: transparent;
+  color: @color7;
 }
 
 #taskbar {
@@ -578,7 +582,7 @@ tooltip {
 */
   border-radius: 4px;
   color: @text;
-  background: @surface0;
+  background: transparent;
   font-size: 17px;
 }
 

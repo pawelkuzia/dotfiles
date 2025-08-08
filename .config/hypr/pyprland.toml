@@ -5,6 +5,7 @@ animation = "fromTop"
 command = "kitty --class alaquake -e tmuxinator start dropdown"
 class = "alaquake"
 size = "1280px 720px"
+margin = 64
 lazy = true
 unfocus = "hide"
 force_monitor = "DP-1"

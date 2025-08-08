@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-export GTK_THEME="oomox-xresources-reverse"
+# export GTK_THEME="oomox-xresources-reverse"
 # History settings
 HISTFILE=~/.histfile
 HISTSIZE=5000
@@ -27,7 +27,8 @@ if [[ -f ~/.cache/wal/colors.sh ]]; then
 fi
 
 # Set fzf colors
-export FZF_DEFAULT_OPTS="--color=fg:$color15,bg:$color0,hl:$color4,fg+:$color15,bg+:$color0,hl+:$color4,info:$color4,prompt:$color1,spinner:$color4,marker:$color1"
+# export FZF_DEFAULT_OPTS="--color=fg:$color15,bg:$color0,hl:$color4,fg+:$color15,bg+:$color0,hl+:$color4,info:$color4,prompt:$color1,spinner:$color4,marker:$color1"
+export FZF_DEFAULT_OPTS="--color=fg:$color15,bg:-1,hl:$color4,fg+:$color15,bg+:-1,hl+:$color4,info:$color4,prompt:$color1,spinner:$color4,marker:$color1"
 
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -38,7 +39,17 @@ export FZF_DEFAULT_OPTS="--color=fg:$color15,bg:$color0,hl:$color4,fg+:$color15,
 # --no-scrollbar \
 # --prompt=❯ "
 export FZF_DEFAULT_COMMAND=""
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse --preview-window=right,65%,border-sharp"
+# export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always --line-range :500 {}' --layout=reverse --preview-window=right,65%,border-sharp"
+export FZF_CTRL_T_OPTS="--preview '
+  if file --mime {} | grep -q image/; then
+    kitty +kitten icat --transfer-mode=stream --align=left --scale-up --clear --stdin=no {};
+  else
+    bat --style=numbers --color=always --line-range :500 {};
+  fi
+' --preview-window=right,65%,border-sharp --layout=reverse"
+
+
+
 export FZF_CTRL_R_OPTS="--layout=reverse"
 # Bat Theme
 export BAT_THEME="Catppuccin Mocha"
@@ -116,4 +127,9 @@ alias vi=nvim
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/pawelkuzia/.dart-cli-completion/zsh-config.zsh ]] && . /home/pawelkuzia/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/pawelkuzia/.lmstudio/bin"
+# End of LM Studio CLI section
 

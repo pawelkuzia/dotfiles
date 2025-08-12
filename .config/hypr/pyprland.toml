@@ -1,5 +1,8 @@
 [pyprland]
-plugins = ["scratchpads"]
+plugins = ["scratchpads", "menubar"]
+[menubar]
+command = "waybar"
+monitors = ["DP-1", "DP-2", "DP-3"]
 [scratchpads.alaquake]
 animation = "fromTop"
 command = "kitty --class alaquake -e tmuxinator start dropdown"
@@ -9,3 +12,14 @@ margin = 64
 lazy = true
 unfocus = "hide"
 force_monitor = "DP-1"
+
+[scratchpads.mixerquake]
+force_monitor = "DP-1"
+animation = "fromTop"
+command = "kitty --class AudioMixer -e pulsemixer"
+class = "AudioMixer"
+size = "620px 950px"
+margin = 64
+position = "3208px 64px"
+lazy = true
+unfocus = "hide"

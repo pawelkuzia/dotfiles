@@ -218,7 +218,7 @@
       "▇",
       "█"
     ],
-    "on-click": "pavucontrol",
+    "on-click": "pypr toggle mixerquake",
     "actions": {
       "on-click-right": "mode"
     }

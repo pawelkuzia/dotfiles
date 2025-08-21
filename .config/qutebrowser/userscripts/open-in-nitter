@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# open-in-nitter
+
+# Pobranie aktualnego URL
+url="$QUTE_URL"
+
+# Sprawdzenie, czy to Twitter/X
+if [[ "$url" =~ (twitter\.com|x\.com) ]]; then
+    # Zamiana na Nitter
+    new_url=$(echo "$url" | sed -E 's#(https?://)?(www\.)?(twitter\.com|x\.com)#https://nitter.net#')
+    # Otwarcie w tej samej karcie
+    qutebrowser ":open -r $new_url"
+else
+    echo "Nie jest to Twitter/X – nic nie robimy."
+fi

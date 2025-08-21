@@ -233,7 +233,8 @@
     "sort-by-app-id": false,
     "ignore-list": [
       "Alacritty",
-      "alaquake"
+      "alaquake",
+      "AudioMixer"
     ],
     "app_ids-mapping": {
       "firefoxdeveloperedition": "firefox-developer-edition"

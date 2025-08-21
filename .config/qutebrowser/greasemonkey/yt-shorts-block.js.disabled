@@ -1,0 +1,74 @@
+// ==UserScript==
+// @name        YouTube Hide All Shorts
+// @include     *youtube.com*
+// @grant       GM_addStyle
+// @run-at      document-end
+// ==/UserScript==
+
+(function () {
+  'use strict';
+
+  // ----------------------
+  // Prosty CSS dla elementów statycznych
+  // ----------------------
+  const cssRules = `
+    /* Grid i rich row */
+    ytd-rich-grid-row, #contents.ytd-rich-grid-row {
+        display: contents !important;
+    }
+    `;
+  const styleEl = document.createElement('style');
+  styleEl.type = 'text/css';
+  styleEl.textContent = cssRules;
+  document.head.append(styleEl);
+
+  // ----------------------
+  // Funkcja do ukrywania Shorts
+  // ----------------------
+  function hideShorts() {
+    const rules = [
+      // Desktop - miniaturki w gridach z "#Shorts"
+      { sel: 'ytd-grid-video-renderer, ytd-rich-item-renderer, ytd-video-renderer', text: /(^| )#Shorts?( |$)/i },
+      // Desktop - overlay SHORTS
+      { sel: 'ytd-grid-video-renderer, ytd-rich-item-renderer, ytd-video-renderer, ytd-reel-shelf-renderer', attr: 'overlay-style', value: 'SHORTS' },
+      // Desktop - przyciski i taby Shorts
+      { sel: 'ytd-guide-entry-renderer, ytd-mini-guide-entry-renderer, tp-yt-paper-tab, yt-tab-shape, yt-chip-cloud-chip-renderer, ytd-rich-section-renderer, ytd-reel-shelf-renderer', text: /^Shorts$/i },
+      { sel: '.shelf-header-layout-wiz__title', text: /(^| )Shorts( |$)/i },
+      // Desktop - remixy
+      { sel: 'ytd-reel-shelf-renderer', text: /(^| )Shorts.?Remix.*$/i },
+
+      // Mobile - feed i miniaturki
+      { sel: 'ytm-rich-item-renderer, ytm-item-section-renderer', text: /(^| )#Shorts?( |$)/i },
+      // Mobile - overlay SHORTS
+      { sel: 'ytm-video-with-context-renderer', attr: 'data-style', value: 'SHORTS' },
+      // Mobile - przyciski i taby Shorts
+      { sel: '.single-column-browse-results-tabs > a, ytm-reel-shelf-renderer.item, ytm-chip-cloud-chip-renderer, ytm-reel-shelf-renderer', text: /^Shorts$/i },
+      // Mobile - remixy
+      { sel: 'ytm-reel-shelf-renderer', text: /(^| )Shorts.?Remix.*$/i }
+    ];
+
+    rules.forEach(rule => {
+      document.querySelectorAll(rule.sel).forEach(el => {
+        try {
+          if (rule.text && el.textContent.match(rule.text)) {
+            el.style.display = 'none';
+          } else if (rule.attr && el.getAttribute(rule.attr) === rule.value) {
+            el.style.display = 'none';
+          }
+        } catch (e) { /* ignoruj błędy w shadow DOM */ }
+      });
+    });
+  }
+
+  // ----------------------
+  // Zastosowanie natychmiastowe
+  // ----------------------
+  hideShorts();
+
+  // ----------------------
+  // MutationObserver dla dynamicznie wczytywanych elementów
+  // ----------------------
+  const observer = new MutationObserver(hideShorts);
+  observer.observe(document.body, { childList: true, subtree: true });
+
+})();

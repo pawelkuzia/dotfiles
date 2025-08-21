@@ -32,7 +32,7 @@ configuration {
 	margin: 0;
 	padding: 0;
 	spacing: 0;
-	bg: @background-alpha50;
+	bg: @background-alpha80;
 	bg-alt: @color1-alpha80;
 	fg: #181825;
 	fg-alt: #cdd6f4;

@@ -2,7 +2,7 @@
 plugins = ["scratchpads", "menubar"]
 [menubar]
 command = "waybar"
-monitors = ["DP-1", "DP-2", "DP-3"]
+monitors = ["HDMI-A-1", "DP-1", "DP-2", "DP-3"]
 [scratchpads.alaquake]
 animation = "fromTop"
 command = "kitty --class alaquake -e tmuxinator start dropdown"

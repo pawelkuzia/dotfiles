@@ -83,13 +83,13 @@ c.colors.statusbar.progress.bg = wal["special"]["background"]
 c.colors.statusbar.passthrough.bg = wal["special"]["background"]
 
 c.colors.statusbar.normal.fg = wal["special"]["foreground"]
-c.colors.statusbar.insert.fg = wal["colors"]["color1"]
+c.colors.statusbar.insert.fg = wal["colors"]["color3"]
 c.colors.statusbar.command.fg = wal["special"]["foreground"]
 c.colors.statusbar.passthrough.fg = wal["colors"]["color3"]
 c.colors.statusbar.caret.fg = wal["colors"]["color3"]
 c.colors.statusbar.caret.selection.fg = wal["colors"]["color3"]
 
-c.colors.statusbar.url.error.fg = wal["colors"]["color1"]
+c.colors.statusbar.url.error.fg = wal["colors"]["color6"]
 c.colors.statusbar.url.fg = wal["special"]["foreground"]
 c.colors.statusbar.url.hover.fg = wal["colors"]["color14"]
 c.colors.statusbar.url.success.http.fg = wal["colors"]["color6"]
@@ -134,7 +134,7 @@ c.colors.contextmenu.menu.fg = wal["special"]["foreground"]
 c.colors.contextmenu.disabled.bg = wal["colors"]["color0"]
 c.colors.contextmenu.disabled.fg = wal["colors"]["color8"]
 
-c.colors.contextmenu.selected.bg = wal["colors"]["color8"]
+c.colors.contextmenu.selected.bg = wal["colors"]["color10"]
 c.colors.contextmenu.selected.fg = wal["colors"]["color7"]
 
 c.tabs.position = 'left'
@@ -183,7 +183,7 @@ config.bind('<Ctrl-m>', 'spawn mpv --force-window=immediate --cache --cache-secs
 config.bind('Y', 'hint links spawn mpv --force-window=immediate --cache --cache-secs=20 --demuxer-max-bytes=500000KiB {hint-url}')
 config.bind('<Ctrl-l>', 'set-cmd-text -s :open {url}')
 config.bind('<Ctrl-Shift-D>', 'config-cycle -u {url:domain} colors.webpage.darkmode.enabled false true;; reload')
-
+config.bind('<Ctrl-Shift-F>', 'config-cycle fonts.default_size 18pt 11pt ;; config-cycle tabs.width 450 220 ;; config-cycle zoom.default 220 120 ;; config-cycle fonts.contextmenu 18pt 11pt')
 c.aliases['mpv'] = 'spawn mpv --force-window=immediate --cache --cache-secs=20 --demuxer-max-bytes=500000KiB {url}'
 
 config.bind('<Shift-x>', 'spawn --userscript ~/.config/qutebrowser/userscripts/open-in-nitter')

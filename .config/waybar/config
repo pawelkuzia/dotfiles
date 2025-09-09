@@ -1,7 +1,10 @@
 [
   {
     "layer": "top",
-    "output": "DP-1",
+    "output": [
+      "DP-1",
+      "HDMI-A-1"
+    ],
     "height": 50,
     "spacing": 12,
     "modules-left": [
@@ -29,7 +32,10 @@
   {
     "name": "dock",
     "layer": "top",
-    "output": "DP-1",
+    "output": [
+      "DP-1",
+      "HDMI-A-1"
+    ],
     "spacing": 0,
     "position": "bottom",
     "height": 70,

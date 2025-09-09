@@ -1,0 +1,6 @@
+bind J tabnext
+bind K tabprev
+
+
+set smoothscroll true
+

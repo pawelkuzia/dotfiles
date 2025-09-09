@@ -327,10 +327,10 @@
   "custom/wallpaper": {
     "format": "",
     "tooltip": false,
-    "on-click-right": "kitty --class WallpaperPicker --hold=no -e ~/Scripts/selectwall.sh",
+    // "on-click-right": "kitty --class WallpaperPicker --hold=no -e ~/Scripts/selectwall.sh",
     "on-click": "hyprctl dispatch exec /home/pawelkuzia/Scripts/next_wallpaper.sh",
     // "on-click": "kitty --class pywal zsh -ic '/home/pawelkuzia/Scripts/next_wallpaper.sh'",
-    //"on-click-right": "hyprctl dispatch exec waypaper"
+    "on-click-right": "hyprctl dispatch exec waypaper"
   },
   "tray": {
     // "icon-size": 21,

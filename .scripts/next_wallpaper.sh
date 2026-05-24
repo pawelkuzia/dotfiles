@@ -115,7 +115,8 @@ fi
 	# 		echo "Swaybg not running. Starting up"
 	# 	fi
 	# nohup swaybg --image $wplast -m fill &
-	swww img $wplast --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60
+	awww img $wplast --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60
+	# swww img $wplast --transition-type grow --transition-pos 0.978,0.985 --transition-duration 1 --transition-fps 60
 	notify-send -i $wplast "New wallpaper set" "$wplast" --app-name "Wallpaper"
   wal -i "$wplast"
   bash /opt/oomox/plugins/theme_oomox/change_color.sh /opt/oomox/scripted_colors/xresources/xresources-reverse

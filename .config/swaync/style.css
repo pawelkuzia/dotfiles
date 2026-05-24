@@ -346,3 +346,13 @@
 .widget-inhibitors > button:hover {
   background: var(--noti-bg-hover);
 }
+
+/* Upewnia się, że główny kontener nie przewija się */
+    overflow: hidden; 
+}
+
+#control-center-scroll {
+    /* To jest wewnętrzny widżet GTK/swaync, który odpowiada za przewijanie zawartości */
+    overflow: hidden;
+    min-height: 0;
+}
